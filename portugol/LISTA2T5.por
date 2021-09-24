@@ -7,7 +7,7 @@ programa
 		escreva("Indique o indíce de poluiçao: ")
 		leia(indicePol)
 
-		se(indicePol<0.25){
+		se(indicePol<=0.25){
 			escreva("Os indíces de poluição estão ótimos continuem o trabalho!!")
 		}
 		senao se(indicePol>0.25 e indicePol<0.3){
@@ -29,7 +29,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 342; 
+ * @POSICAO-CURSOR = 129; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
