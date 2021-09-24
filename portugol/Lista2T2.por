@@ -14,7 +14,7 @@ programa
 		se(numHoraTrab>50.0){			
 			numHoraExc = numHoraTrab - 50.0
 			salarioExc= numHoraExc * horaExc
-			salarioTotal = (numHoraTrab * horaTrab) + salarioExc
+			salarioTotal = ((numHoraTrab - numHoraExc) * horaTrab) + salarioExc
 			escreva("Código Funcionário: ",codigo)
 			escreva("\nSálario Excedente: R$ ",salarioExc)
 			escreva("\nSálario Total: R$ ",salarioTotal)
@@ -34,7 +34,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 638; 
+ * @POSICAO-CURSOR = 414; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
