@@ -13,8 +13,8 @@ programa
 		,"Caneca	Trono de ferro: GAME OF THRONES	 	  ","Almofada Geek Mulher maravilha:DC COMICS	  ","Almofada Geek Escudo Hylian: THE LEGEND OF ZELDA  "
 		}
 		real valor[10]={11.65,13.95,14.95,15.92,29.90,36.90,44.75,59.90,59.90,59.90}
-		inteiro estoque[10]={10,10,10,10,10,10,10,10,10,10}
-		cadeia op= "S",codCarrinho,carrinho[100]
+		inteiro estoque[10]={10,10,10,10,10,10,10,10,10,10},lugarCarrinho=-1,quantidade=0
+		cadeia op= "S",codCarrinho,carrinho[10],validacao="INVALIDO"
 
 		enquanto(op=="S"){
 			escreva(nomeLoja,"\n")
@@ -26,16 +26,26 @@ programa
 			
 			escreva("\n\nDigite o codigo do produto que você deseja: ")
 			leia(codCarrinho)
-			para(inteiro x = 0; x<10;x++){
-				se(codCarrinho==codigoProduto[x]){					
-					carrinho[x]=codCarrinho
+			validacao="INVALIDO"
+			enquanto(validacao=="INVALIDO"){
+				para(inteiro x = 0; x<10;x++){
+					se(codCarrinho==codigoProduto[x]){					
+						lugarCarrinho++
+						carrinho[lugarCarrinho]=codCarrinho
+						validacao="VALIDO"		
+					}
+					
 				}
-				senao se(codCarrinho!=codigoProduto[x]) {
-					escreva("Opção inválida!!")
+				se(validacao=="INVALIDO"){
+					escreva("\nCódigo inválido!!")
 					escreva("\nDigite o codigo do produto que você deseja: ")
 					leia(codCarrinho)
 				}
-			}				
+					
+			}
+			escreva("\nQuantidade: ")
+			leia(quantidade)
+						
 			escreva("\nContinua a compra S/N: ")
 			leia(op)
 			op= txt.caixa_alta(op)	
@@ -55,9 +65,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1582; 
+ * @POSICAO-CURSOR = 1815; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {carrinho, 17, 29, 8};
+ * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 9, 13}-{carrinho, 17, 29, 8};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
