@@ -14,63 +14,69 @@ programa
 		}
 		real valor[10]={11.65,13.95,14.95,15.92,29.90,36.90,44.75,59.90,59.90,59.90}
 		inteiro estoque[10]={10,10,10,10,10,10,10,10,10,10},lugarCarrinho=0,quantidadeDig=0
-		inteiro lugarQuant=0,quantidadeFinal[10]
+		inteiro lugarQuant=0,quantidadeFinal[10],lugarEstoque=0
 		cadeia op= "S",codCarrinho,carrinho[10],validacao="INVALIDO"
-
+		//entrada do menu
 		enquanto(op=="S"){
+			//Escreve menu
 			escreva(nomeLoja,"\n")
 			escreva(slogan,"\n")
 			escreva("Código","\t|","Nome do Produto","\t\t\t\t\t|","Valor(R$)","\t|","Estoque")
 			para(inteiro x=0;x<10;x++){
 				escreva("\n",codigoProduto[x],"\t|",nomeProduto[x],"\t|",valor[x],"\t\t|",estoque[x])
-			}
-			
+			}			
 			escreva("\n\nDigite o codigo do produto que você deseja: ")
 			leia(codCarrinho)
 			codCarrinho = txt.caixa_alta(codCarrinho)
 			validacao="INVALIDO"
+			//Validação do código do cliente.
 			enquanto(validacao=="INVALIDO"){
 				para(inteiro x = 0; x<10;x++){
 					se(codCarrinho==codigoProduto[x]){					
-						carrinho[lugarCarrinho]=codCarrinho
-						validacao="VALIDO"
-						lugarCarrinho++		
-					}
-					
-				}
+						carrinho[x]=codCarrinho
+						validacao="VALIDO"								
+					}					
+				}				
 				se(validacao=="INVALIDO"){
 					escreva("Código inválido!!")
 					escreva("\nDigite o codigo do produto que você deseja: ")
 					leia(codCarrinho)
 					codCarrinho = txt.caixa_alta(codCarrinho)
-				}
-					
+				}					
 			}
+			//Validação da quantidade se é na quantidade do nosso estoque.
 			escreva("\nQuantidade: ")
 			leia(quantidadeDig)
 			validacao="INVALIDO"
 			enquanto(validacao=="INVALIDO"){
-				se(quantidadeDig>0 e quantidadeDig<=10){
-					quantidadeFinal[lugarQuant]= quantidadeDig
-					lugarQuant++
-					validacao="VALIDO"
+				para(inteiro x = 0; x<10;x++){
+					se(codCarrinho==codigoProduto[x]){
+						quantidadeFinal[x]= quantidadeDig
+						validacao="VALIDO"						
+					}
 				}
-				senao{
-					escreva("\nValor inválido!!")
-					escreva("\nDigite novamente a quantidade: ")
-					leia(quantidadeDig)					
+					se(quantidadeDig<0 e quantidadeDig>10){
+						escreva("\nValor inválido!!")
+						escreva("\nDigite novamente a quantidade: ")
+						leia(quantidadeDig)	
+					}									
 				}
-			}				
+			//Validção se o cliente quer ou não continuar a comprar.
 			escreva("\nContinua a compra S/N: ")
 			leia(op)
-			op= txt.caixa_alta(op)	
-			
+			op= txt.caixa_alta(op)
 			enquanto(op!="S" e op!="N"){
 				escreva("Opção inválida Tente novamente!!")
 				escreva("\nContinua a compra S/N: ")
 			     leia(op)
 			     op= txt.caixa_alta(op)
-			}			
+			}
+			//Subtração Estoque
+			para(inteiro x = 0; x<10;x++){
+				se(codCarrinho==codigoProduto[x]){
+					estoque[x]=estoque[x]-quantidadeFinal[x]
+				}
+			}					
 		}
 		escreva("Até logo")
 	}
@@ -80,9 +86,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1728; 
+ * @POSICAO-CURSOR = 2812; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 9, 13}-{quantidadeFinal, 17, 23, 15}-{carrinho, 18, 29, 8};
+ * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 9, 13}-{quantidadeFinal, 17, 23, 15}-{codCarrinho, 18, 17, 11}-{carrinho, 18, 29, 8};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
