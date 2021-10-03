@@ -54,7 +54,8 @@ programa
 				}
 			}
 			escreva("\n\n*--------------------------------------------------------------------------------------------*")
-			escreva("\nDigite o codigo do produto que você deseja: ")
+			escreva("\nOBS: Para alteração de quantidade inserir novamente o código.")
+			escreva("\nDigite o codigo do produto que você deseja: ") 
 			leia(codCarrinho)
 			codCarrinho = txt.caixa_alta(codCarrinho)
 			validacao="INVALIDO"
@@ -199,7 +200,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 8548; 
+ * @POSICAO-CURSOR = 2681; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {valorTotal, 16, 79, 10}-{totalPagamento, 16, 94, 14};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
