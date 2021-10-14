@@ -3,7 +3,7 @@ package entities;
 public abstract class Conta {
 	private int numero;
 	private String cpf;
-	private double saldo;
+	protected double saldo;
 	private boolean ativa;
 	
 	public Conta(int numero, String cpf) {
@@ -53,6 +53,5 @@ public abstract class Conta {
 	}
 	public void credito(double valor) {
 		saldo+=valor;
-	}
-	
+	}	
 }
