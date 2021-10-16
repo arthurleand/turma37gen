@@ -16,7 +16,7 @@ public class LojaSemPOO {
 
 	public static void cabecalho() {
 
-		String nomeLoja="▂▃▄▅▆▇█▓▒░G2 GEEK░▒▓█▇▆▅▄▃▂";
+		String nomeLoja="『G』『2』『-』『G』『E』『E』『K』";
 		String slogan="♥ Dê START no seu estilo ♥";
 		System.out.println(nomeLoja);
 		System.out.print("\n"+slogan+"\n");
