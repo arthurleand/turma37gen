@@ -50,7 +50,7 @@ public class Banco {
 			do {
 				System.out.println("CONTA [CONTA POUPANÇA]");
 				System.out.println(
-						"Saldo Atual: R$" + cp1.getSaldo() + "Todo dia do aniversário da Poupança ela rende 0.05% ");
+						"Saldo Atual: R$" + cp1.getSaldo() + "Todo dia do aniversário da Poupança ela rende 0.0005% ");
 				System.out.print("Movimento - D-débito C-crédito: ");
 				opMovi = scan.next().toUpperCase().charAt(0);
 				System.out.print("Valor Movimento: R$");

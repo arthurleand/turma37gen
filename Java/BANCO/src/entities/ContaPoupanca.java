@@ -17,9 +17,9 @@ public class ContaPoupanca extends Conta {
 		this.diaAniversarioPoupanca = diaAniversarioPoupanca;
 	}
 
-	public void correção(int diaAtual) {
+	public void correcao(int diaAtual) {
 		if (diaAniversarioPoupanca == diaAtual) {
-			saldo = (saldo* 0.05) + saldo;
+			saldo = (saldo* 0.0005) + saldo;
 		} else {
 			System.out.println("saldo: " +saldo);
 		}

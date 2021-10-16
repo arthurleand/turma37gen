@@ -5,7 +5,7 @@ public abstract class Conta {
 	private String cpf;
 	protected double saldo;
 	private boolean ativa;
-	
+
 	public Conta(int numero, String cpf) {
 		super();
 		this.numero = numero;
@@ -31,6 +31,7 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
+
 	public boolean isAtiva() {
 		return ativa;
 	}
@@ -38,20 +39,31 @@ public abstract class Conta {
 	public void setAtiva(boolean ativa) {
 		this.ativa = ativa;
 	}
-	
-	public void ativar(char op){
-		if(op==1) {
-			ativa=true;
+
+	public void ativar(char op) {
+		if (op == 1) {
+			ativa = true;
 			System.out.println("Conta Ativa!!");
+		} else {
+			ativa = false;
 		}
-		else{
-			ativa=false;
-		}	
 	}
+
 	public void debito(double valor) {
-		saldo-=valor;
+		if (valor <= 0) {
+			System.out.println("Impossivel Realizar!!");
+		} else if (saldo < valor) {
+			System.out.println("Saldo Indísponivel!!");
+		} else if (saldo >= valor) {
+			saldo -= valor;
+		}
 	}
+
 	public void credito(double valor) {
-		saldo+=valor;
-	}	
+		if (valor <= 0) {
+			System.out.println("Impossivel Realizar!!");
+		} else {
+			saldo += valor;
+		}
+	}
 }
