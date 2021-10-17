@@ -163,7 +163,7 @@ public class LojaSemPOO {
 			}
 
 			//Calcula Valor Total Da Compra
-			for(int x=0; x<10; x++){
+			for(int x=0; x<carrinho.length; x++){
 				valorTotal=valorTotal+(quantidadeFinal[x]*valor[x]);
 			}
 
@@ -192,7 +192,7 @@ public class LojaSemPOO {
 				}
 			}
 			limpa();
-
+			
 			System.out.print("Nota Fiscal");
 			System.out.print("\n-------------------------------------------------------------------------------------------------");
 			cabecalho();	
