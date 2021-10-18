@@ -41,7 +41,6 @@ public class LojaG2Geek {
 				"Chaveiro Funko Pocket POP Home de ferro:VINGADORES", "Caneca	Trono de ferro: GAME OF THRONES	 	  ",
 				"Almofada Geek Mulher maravilha:DC COMICS	  ", "Almofada Geek Escudo Hylian: THE LEGEND OF ZELDA  " };
 		double valor[] = { 11.65, 13.95, 14.95, 15.92, 29.90, 36.90, 44.75, 59.90, 59.90, 59.90 };
-		int indiceProduto = 0;
 		char op;
 		char opNovaCompra;
 		String codCarrinho;
@@ -73,7 +72,8 @@ public class LojaG2Geek {
 			}
 
 			while (op == 'S') {
-
+				
+				//LISTA DE PRODUTOS
 				System.out.print("CÓD.\t|PRODUTO \t\t\t\t\t\t|PREÇO\t\t|ESTOQUE");
 				System.out.println(
 						"\n*--------------------------------------------------------------------------------------------*");
@@ -88,7 +88,7 @@ public class LojaG2Geek {
 					System.out.print(
 							"*--------------------------------------------------------------------------------------------*");
 					System.out.print("\n\nCarrinho de Compras\n");
-					System.out.print("CÓD.\t|PRODUTO \t\t\t\t\t\t|PREÇO\t\t|ESTOQUE");
+					System.out.print("CÓD.\t|PRODUTO \t\t\t\t\t\t|PREÇO\t\t|QUANTIDADE");
 					System.out.println(
 							"\n*--------------------------------------------------------------------------------------------*");
 					for (Produto product : carrinho) {
@@ -111,7 +111,6 @@ public class LojaG2Geek {
 
 				// Validacao codigo usuario
 				validacao = "INVALIDO";
-
 				while (validacao == "INVALIDO") {
 					for (Produto product : produto) {
 						if (codCarrinho.equals(product.getCodigo())) {
@@ -141,14 +140,13 @@ public class LojaG2Geek {
 
 								if (quantidadeDig <= produto.get(posicaoFinal).getEstoque() && quantidadeDig > 0) {
 									carrinho.add(new Produto(produto.get(posicaoFinal).getCodigo(),
-											produto.get(posicaoFinal).getNome(), produto.get(posicaoFinal).getValor(),
+									produto.get(posicaoFinal).getNome(), produto.get(posicaoFinal).getValor(),
 											quantidadeDig));
 									validacao = "VALIDO";
 								} else {
 									System.out.print("Quantidade inválida!!\nTente Novamente: ");
 									quantidadeDig = scan.nextInt();
 								}
-
 							}
 
 						} else if (validacao == "INVALIDO") {	
@@ -156,13 +154,13 @@ public class LojaG2Geek {
 								System.out.print("Código inválido, produto já adicionado!!");
 								codigoRep=0;
 								break;
-							}else {
-							System.out.print("Código inválido!!");
-							System.out.print("\nDigite o codigo do produto que você deseja: ");
-							codCarrinho = scan.next().toUpperCase();
-							}	
+							} else {
+								System.out.print("Código inválido!!");
+								System.out.print("\nDigite o codigo do produto que você deseja: ");
+								codCarrinho = scan.next().toUpperCase();
+								}	
 							}
-					}else {
+					} else {
 						System.out.println("Produto fora do estoque!!");
 						break;
 					}
@@ -176,10 +174,10 @@ public class LojaG2Geek {
 					System.out.print("\nContinua a compra S/N: ");
 					op = scan.next().toUpperCase().charAt(0);
 				}
-
+				limpa();
 			}
 
-			// Subtracao estoque
+			//ATUALIZA ESTOQUE
 			for (Produto product : produto) {
 				for (Produto carrinho1 : carrinho) {
 					if (product.getCodigo().equals(carrinho1.getCodigo())) {
@@ -187,15 +185,22 @@ public class LojaG2Geek {
 					}
 				}
 			}
-			// Valor total compra sem descontos e acrescimos
+			
+			//Valor total compra sem descontos e acrescimos
 			for (Produto product : carrinho) {
 				if (product.getEstoque() > 0) {
 					valorTotal += product.getEstoque() * product.getValor();
 				}
 			}
+			
+			//CHAMANDO OS MÉTODOS
 			totalPagamento = pagamento.Pagamento(valorTotal, scan);
+			limpa();
 			pagamento.notaFiscal(carrinho, totalPagamento);
-
+			
+			for(int x=0; x<5; x++) {
+	        	System.out.println();
+	        }
 			System.out.print("\nDESEJA FAZER UMA NOVA COMPRA [S/N]? ");
 			opNovaCompra = scan.next().toUpperCase().charAt(0);
 			if (opNovaCompra == 'S') {
@@ -204,13 +209,20 @@ public class LojaG2Geek {
 				valorTotal = 0.0;
 				totalPagamento = 0.0;
 			}
-
+			limpa();
 		} while (opNovaCompra == 'S');
+		
+		limpa();
+		cabecalho();
 		System.out.print("\n\n┌───── •✧✧• ─────┐");
         System.out.print("\n\n");
         System.out.print("   --ATÉ LOGO--");
         System.out.print("\n\n");
         System.out.print("└───── •✧✧• ─────┘\n");
+        
+        for(int x=0; x<10; x++) {
+        	System.out.println();
+        }
 
 	}
 
