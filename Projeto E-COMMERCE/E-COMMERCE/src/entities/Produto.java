@@ -90,7 +90,7 @@ public class Produto {
 		return totalPagamento;
 	}
 
-	public void notaFiscal(List<Produto> carrinho, double totalPagamento) {
+	public void notaFiscal(List<Produto> carrinho, double totalPagamento,double valorTotal) {
 		String nomeLoja = "『G』『2』『-』『G』『E』『E』『K』";
 		String slogan = "♥ Dê START no seu estilo ♥";
 		if (op == 1) {
@@ -114,7 +114,7 @@ public class Produto {
 					"\n-------------------------------------------------------------------------------------------------");
 			System.out.print("\nOpção à vista com 10 % de desconto selecionada!!");
 			System.out.print("\nO valor total da compra foi: R$" + df.format(totalPagamento));
-			System.out.print("\nOBS: Imposto já incluso no valor do produto");
+			System.out.print("\nOBS: Imposto de (R$"+ Math.ceil((valorTotal*0.09)) +")já incluso no valor da compra ");
 			System.out.print(
 					"\n-------------------------------------------------------------------------------------------------");
 			op=0;
@@ -142,7 +142,7 @@ public class Produto {
 					"\n-------------------------------------------------------------------------------------------------");
 			System.out.print("\nOpção cartão com 10 % de acréscimo selecionada!!");
 			System.out.print("\nO valor total da compra foi: R$" + df.format(totalPagamento));
-			System.out.print("\nOBS: Imposto já incluso no valor do produto");
+			System.out.print("\nOBS: Imposto de (R$"+ Math.ceil((valorTotal*0.09)) +")já incluso no valor da compra ");
 			System.out.print(
 					"\n-------------------------------------------------------------------------------------------------");
 			op=0;
@@ -170,7 +170,7 @@ public class Produto {
 					"\n-------------------------------------------------------------------------------------------------");
 			System.out.print("\nOpção 2x no cartão com 15 % de acréscimo selecionada!!");
 			System.out.print("\nO valor das parcelas foi: 2x R$" + df.format(totalPagamento));
-			System.out.print("\nOBS: Imposto já incluso no valor do produto");
+			System.out.print("\nOBS: Imposto de (R$"+ Math.ceil((valorTotal*0.09)) +")já incluso no valor da compra ");
 			System.out.print(
 					"\n-------------------------------------------------------------------------------------------------");
 			op=0;

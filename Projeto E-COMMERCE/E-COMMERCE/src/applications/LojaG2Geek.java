@@ -194,10 +194,11 @@ public class LojaG2Geek {
 			}
 			
 			//CHAMANDO OS MÉTODOS
+			if(!carrinho.isEmpty()) {
 			totalPagamento = pagamento.Pagamento(valorTotal, scan);
 			limpa();
-			pagamento.notaFiscal(carrinho, totalPagamento);
-			
+			pagamento.notaFiscal(carrinho, totalPagamento,valorTotal);
+			}
 			for(int x=0; x<5; x++) {
 	        	System.out.println();
 	        }
