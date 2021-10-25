@@ -23,4 +23,4 @@ SELECT * FROM tb_funcionarios WHERE salario>2000;
 SELECT * FROM tb_funcionarios WHERE salario<2000;
 
 USE db_rh;
-UPDATE tb_funcionarios SET salario = 1000.00 WHERE id_funcionario= 2;
+UPDATE tb_funcionarios SET salario = 1200.00 WHERE id_funcionario= 2;
